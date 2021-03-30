@@ -17,7 +17,7 @@ GuessingGame(){
   //Setting frame and layout
   JFrame frame = new JFrame("Guessing Game");
   frame.setLayout(new FlowLayout());
-  frame.setSize(250,200);
+  frame.setSize(240,150);
 
   userGuess = new JTextField(10);
   userGuess.setActionCommand("myTF");
@@ -46,6 +46,7 @@ GuessingGame(){
 public void actionPerformed(ActionEvent ae){
   if(ae.getActionCommand().equals("Guess")){
     int guess = Integer.parseInt(userGuess.getText());
+    //checks for correct guess, high, or low
     if(rNum > guess){
       highOrlow.setText("Too Low! ");
       
@@ -56,6 +57,7 @@ public void actionPerformed(ActionEvent ae){
       highOrlow.setText("You got it! ");
     }
     lastGuess.setText("Last guess was: " + guess);
+    //sets game up to be played again
   }else if(ae.getActionCommand().equals("Play Again")){
     r = new Random();
     rNum = r.nextInt(99)+1;
@@ -64,6 +66,7 @@ public void actionPerformed(ActionEvent ae){
     lastGuess.setText("");
     userGuess.setText("");
   }else{
+    //used both setText so that the text would fully show up in the frame
     highOrlow.setText("You pressed Enter. ");
     lastGuess.setText("Please press the Guess Button.");
   }
