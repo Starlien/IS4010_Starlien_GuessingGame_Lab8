@@ -17,6 +17,7 @@ GuessingGame(){
   //Setting frame and layout
   JFrame frame = new JFrame("Guessing Game");
   frame.setLayout(new FlowLayout());
+  //used my own size to fit text on frame
   frame.setSize(240,150);
 
   userGuess = new JTextField(10);
